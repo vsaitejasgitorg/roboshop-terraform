@@ -1,7 +1,8 @@
 resource "aws_instance" "user" {
-  ami = "ami-09c813fb71547fc4f"
-  instance_type = "t3.small"
-  vpc_security_group_ids = ["sg-0217d4c61f41d9ce7"]
+  ami = var.ami_id
+  instance_type = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
+
   tags = {
     Name = "user"
   }
