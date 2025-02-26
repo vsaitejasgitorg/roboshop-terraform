@@ -1,20 +1,20 @@
 
 resource "aws_instance" "instance" {
-  count = length(var.instances)
+  for_each = var.instances
   ami = var.ami_id
   instance_type = var.instance_type
   vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
-    Name = var.instances[count.index]
+    Name = var.instances[each.key]
   }
 }
 
 resource "aws_route53_record" "record" {
-  count = length(var.instances)
-  name    = "${var.instances[count.index]}-${var.env}"
+  for_each = var.instances
+  name    = "${var.instances[each.key]}-${var.env}"
   type    = "A"
   zone_id = var.zone_id
   ttl = 10
-  records = [aws_instance.instance[count.index].private_ip]
+  records = [aws_instance.instance[each.key].private_ip]
 }
