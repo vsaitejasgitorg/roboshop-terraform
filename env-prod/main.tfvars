@@ -46,10 +46,7 @@ instances = {
     instance_type = "t3.small"
   }
 
-  dispatch = {
-    ami_id        = "ami-09c813fb71547fc4f"
-    instance_type = "t3.small"
-  }
+
 }
 
 zone_id = "Z0742899AVG59Z59WGO9"

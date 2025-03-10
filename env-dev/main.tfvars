@@ -63,12 +63,7 @@ instances = {
     root_volume_size = 30
   }
 
-  dispatch = {
-    ami_id        = "ami-09c813fb71547fc4f"
-    instance_type = "t3.small"
-    ansible_role = "dispatch-docker"
-    root_volume_size = 20
-  }
+
 }
 
 zone_id = "Z0742899AVG59Z59WGO9"
