@@ -71,3 +71,17 @@ zone_id = "Z0742899AVG59Z59WGO9"
 env = "dev"
 
 vpc_security_group_ids = ["sg-0217d4c61f41d9ce7"]
+
+eks = {
+  main = {
+    subnets     = ["subnet-0d738aafbf19762db", "subnet-0a307db2f5ead4225"]
+    eks_version = 1.32
+    node_groups = {
+      main = {
+        min_nodes      = 1
+        max_nodes      = 10
+        instance_types = ["t3.medium", "t3.large"]
+      }
+    }
+  }
+}
