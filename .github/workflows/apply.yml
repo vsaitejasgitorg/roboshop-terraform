@@ -34,7 +34,7 @@ jobs:
           vault_token: ${{ secrets.vault_token }}
 
 
-  Deploy Cart:
+  Deploy-Cart:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
@@ -57,7 +57,7 @@ jobs:
           bash argocd.sh cart dev $GID
 
 
-  Deploy Catalogue:
+  Deploy-Catalogue:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
@@ -79,7 +79,7 @@ jobs:
           cd ../helm
           bash argocd.sh catalogue dev $GID
 
-  Deploy User:
+  Deploy-User:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
@@ -101,7 +101,7 @@ jobs:
           cd ../helm
           bash argocd.sh user dev $GID
 
-  Deploy Shipping:
+  Deploy-Shipping:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
@@ -124,7 +124,7 @@ jobs:
           bash argocd.sh shipping dev $GID
 
 
-  Deploy Payment:
+  Deploy-Payment:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
@@ -146,7 +146,7 @@ jobs:
           cd ../helm
           bash argocd.sh payment dev $GID
 
-  Deploy Frontend:
+  Deploy-Frontend:
     needs: Terraform-Apply
     runs-on: self-hosted
     steps:
