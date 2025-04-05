@@ -1,4 +1,4 @@
-name: Terraform Apply
+name: Infra Setup
 on: workflow_dispatch
 jobs:
 #  Terraform-Init:
