@@ -37,7 +37,7 @@ jobs:
     #needs: Terraform-Apply
     runs-on: ubuntu-latest
     permissions:
-      actions: write
+      actions: write-all
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
