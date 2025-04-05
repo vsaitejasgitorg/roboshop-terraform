@@ -2,7 +2,7 @@ name: Infra Destroy
 on: workflow_dispatch
 jobs:
 
-  Terraform-Destroy:
+  Infra-Destroy:
     runs-on: self-hosted
     steps:
       - name: Check out repository code
