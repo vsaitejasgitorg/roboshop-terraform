@@ -1,7 +1,9 @@
 controller:
   service:
-    ports:
-      http: 80
+    httpPort:
+      targetPort: 80
+    httpsPort:
+      targetPort: 80
     annotations:
       service.beta.kubernetes.io/aws-load-balancer-type: "nlb"
       service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
