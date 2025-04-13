@@ -40,3 +40,4 @@ resource "helm_release" "ingress" {
   chart      = "ingress-nginx"
 
 }
+
