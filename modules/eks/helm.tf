@@ -78,7 +78,7 @@ resource "helm_release" "argocd" {
 
   set {
     name  = "global.domain"
-    value = "argocd-${var.env}.saitejasroboshop.store "
+    value = "argocd-${var.env}.saitejasroboshop.store"
   }
 
   values = [
