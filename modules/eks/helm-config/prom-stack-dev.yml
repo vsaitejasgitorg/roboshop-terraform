@@ -11,3 +11,15 @@ grafana:
     - secretName: grafana-general-tls
       hosts:
       - grafana-dev.saitejasroboshop.store
+prometheus:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - prometheus-dev.saitejasroboshop.store
+    tls:
+      - secretName: prometheus-general-tls
+        hosts:
+          - prometheus-dev.saitejasroboshop.store
