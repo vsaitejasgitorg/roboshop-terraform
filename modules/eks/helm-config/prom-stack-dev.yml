@@ -26,5 +26,6 @@ prometheus:
   prometheusSpec:
     additionalScrapeConfigs:
       - job_name: 'ec2-nodes'
-        static_configs:
-          - targets: [ '100.27.48.150:9100' ]
+        ec2_sd_configs:
+          - region: us-east-1
+            port: 9100
