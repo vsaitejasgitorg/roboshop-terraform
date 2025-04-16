@@ -23,3 +23,8 @@ prometheus:
       - secretName: prometheus-general-tls
         hosts:
           - prometheus-dev.saitejasroboshop.store
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: 'ec2-nodes'
+        static_configs:
+          - targets: [ '100.27.48.150:9100' ]
