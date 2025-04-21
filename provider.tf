@@ -14,6 +14,6 @@ provider "helm" {
 }
 
 provider "grafana" {
-  url  = "grafana-dev.saitejasroboshop.store"
+  url  = "https://grafana-dev.saitejasroboshop.store"
   auth = "admin:prom-operator"
 }
