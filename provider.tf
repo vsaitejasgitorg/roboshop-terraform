@@ -12,3 +12,8 @@ provider "helm" {
     config_path = "~/.kube/config"
   }
 }
+
+provider "grafana" {
+  url  = "grafana-dev.saitejasroboshop.store"
+  auth = "admin:prom-operator"
+}
