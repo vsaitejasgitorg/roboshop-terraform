@@ -101,3 +101,5 @@ resource "aws_iam_role_policy_attachment" "k8s-prometheus-ec2-read-access" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess"
   role       = aws_iam_role.k8s-prometheus.name
 }
+
+#
