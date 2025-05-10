@@ -131,3 +131,20 @@ resource "helm_release" "cluster-autoscaler" {
     value = "us-east-1"
   }
 }
+
+# External Secrets
+
+resource "helm_release" "external-secrets" {
+
+  depends_on = [null_resource.kubeconfig]
+  name       = "external-secrets"
+  repository = "https://charts.external-secrets.io"
+  chart      = "external-secrets"
+  namespace  = "kube-system"
+  wait       = "false"
+
+  set {
+    name  = "installCRDs"
+    value = true
+  }
+}
