@@ -148,3 +148,33 @@ resource "helm_release" "external-secrets" {
     value = true
   }
 }
+
+resource "null_resource" "external-secret-store" {
+  provisioner "local-exec" {
+    command = <<EOF
+kubectl apply -f - <<EOK
+apiVersion: v1
+kind: Secret
+metadata:
+  name: vault-token
+data:
+  token: VlJwOHppNTJUOEp1QjNuV0JKZlFtalpMYkJ3RjdrNTJaT1RETmVaY0lVQT0=
+---
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: vault-backend
+spec:
+  provider:
+    vault:
+      server: "http://vault-internal.saitejasroboshop.store:8200"
+      path: "roboshop-${var.env}"
+      version: "v2"
+      auth:
+        tokenSecretRef:
+          name: "vault-token"
+          key: "token"
+EOK
+EOF
+  }
+}
