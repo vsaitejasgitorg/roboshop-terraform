@@ -14,11 +14,11 @@ prometheus:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
-      - prometheus-dev.rdevopsb83.online
+      - prometheus-dev..saitejasroboshop.store
     tls:
     - secretName: prometheus-general-tls
       hosts:
-        - prometheus-dev.rdevopsb83.online
+        - prometheus-dev.saitejasroboshop.store
   prometheusSpec:
     additionalScrapeConfigs:
     - job_name: 'ec2-nodes'
