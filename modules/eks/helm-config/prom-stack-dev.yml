@@ -23,10 +23,10 @@ prometheus:
     additionalScrapeConfigs:
     - job_name: 'ec2-nodes'
       relabel_configs:
-        - source_labels: [__meta_ec2_instance_id]
-          target_label: instance_id
-        - source_labels: [__meta_ec2_tag_Name]
-          target_label: name
+      - source_labels: [__meta_ec2_instance_id]
+        target_label: instance_id
+      - source_labels: [__meta_ec2_tag_Name]
+        target_label: name
       ec2_sd_configs:
         - region: us-east-1
           port: 9100
@@ -49,4 +49,4 @@ alertmanager:
     tls:
     - secretName: alertmanager-general-tls
       hosts:
-        - alertmanager-dev.saitejasroboshop.store
+      - alertmanager-dev.saitejasroboshop.store
