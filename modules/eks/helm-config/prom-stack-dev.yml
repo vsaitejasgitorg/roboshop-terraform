@@ -6,11 +6,7 @@ grafana:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - grafana-dev.saitejasroboshop.store
-    path: /
-    tls:
-    - secretName: grafana-general-tls
-      hosts:
-      - grafana-dev.saitejasroboshop.store
+
 prometheus:
   ingress:
     enabled: true
@@ -18,19 +14,19 @@ prometheus:
     annotations:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
-      - prometheus-dev.saitejasroboshop.store
+      - prometheus-dev.rdevopsb83.online
     tls:
       - secretName: prometheus-general-tls
         hosts:
-          - prometheus-dev.saitejasroboshop.store
+          - prometheus-dev.rdevopsb83.online
   prometheusSpec:
     additionalScrapeConfigs:
       - job_name: 'ec2-nodes'
         relabel_configs:
-        - source_labels: [ __meta_ec2_instance_id ]
-          target_label: instance_id
-        - source_labels: [__meta_ec2_tag_Name]
-          target_label: name
+          - source_labels: [__meta_ec2_instance_id]
+            target_label: instance_id
+          - source_labels: [__meta_ec2_tag_Name]
+            target_label: name
         ec2_sd_configs:
           - region: us-east-1
             port: 9100
@@ -39,7 +35,8 @@ prometheus:
                 values: ["true"]
       - job_name: 'ingress'
         static_configs:
-           - targets: ["ingress-nginx-controller-metrics:10254"]
+          - targets: ["ingress-nginx-controller-metrics:10254"]
+
 alertmanager:
   ingress:
     enabled: true
