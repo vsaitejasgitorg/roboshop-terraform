@@ -40,3 +40,16 @@ prometheus:
       - job_name: 'ingress'
         static_configs:
            - targets: ["ingress-nginx-controller-metrics:10254"]
+alertmanager:
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - alertmanager-dev.saitejasroboshop.store
+    path: /
+    tls:
+      - secretName: alertmanager-general-tls
+        hosts:
+          - alertmanager-dev.saitejasroboshop.store
