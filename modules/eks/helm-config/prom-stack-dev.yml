@@ -6,7 +6,11 @@ grafana:
       cert-manager.io/cluster-issuer: letsencrypt
     hosts:
       - grafana-dev.saitejasroboshop.store
-
+    path: /
+    tls:
+    - secretName: grafana-general-tls
+      hosts:
+        - grafana-dev.saitejasroboshop.store
 prometheus:
   ingress:
     enabled: true
