@@ -155,13 +155,6 @@ resource "helm_release" "external-secrets" {
 resource "null_resource" "external-secret-store" {
   provisioner "local-exec" {
     command = <<EOF
-
- until kubectl api-resources | grep -q clustersecretstores.external-secrets.io; do
-        echo "Waiting for ClusterSecretStore API to be available..."
-        sleep 2
-      done
-
-      echo "ClusterSecretStore API is ready. Applying resources..."
 kubectl apply -f - <<EOK
 apiVersion: v1
 kind: Secret
