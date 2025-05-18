@@ -155,6 +155,12 @@ resource "helm_release" "external-secrets" {
 resource "null_resource" "external-secret-store" {
   provisioner "local-exec" {
     command = <<EOF
+ # Wait for CRD to exist
+until kubectl get crd clustersecretstores.external-secrets.io > /dev/null 2>&1;
+do
+  echo "Waiting for ClusterSecretStore CRD to be ready..."
+  sleep 2
+done
 kubectl apply -f - <<EOK
 apiVersion: v1
 kind: Secret
