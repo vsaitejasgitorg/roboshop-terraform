@@ -164,7 +164,7 @@ metadata:
 data:
   token: aHZzLjFFTTdmaDNtTjFrTDNkTm9ybjhiaEJXag==
 ---
-apiVersion: external-secrets.io/v1beta1
+apiVersion: external-secrets.io/v1
 kind: ClusterSecretStore
 metadata:
   name: vault-backend
