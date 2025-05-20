@@ -93,9 +93,9 @@ alertmanager:
           - alertname = "Watchdog"
       - receiver: 'emails'
     receivers:
-      - name: 'null'
-      - name: 'emails'
-        email_configs:
+    - name: 'null'
+    - name: 'emails'
+      email_configs:
           - to: 'saitejav236@gmail.com'
             from: 'saitejav236@gmail.com'
             smarthost: 'email-smtp.us-east-1.amazonaws.com:587'
@@ -103,4 +103,4 @@ alertmanager:
             auth_password: ${SMTP_password}
             send_resolved: false
     templates:
-      - '/etc/alertmanager/config/*.tmpl'
+    - '/etc/alertmanager/config/*.tmpl'
